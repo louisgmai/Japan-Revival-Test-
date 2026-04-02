@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Discover the Manga - Revival Japan</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#F74A53",
+                        "background-light": "#F5F0F0",
+                        "background-dark": "#121212",
+                        "surface-light": "#FFFFFF",
+                        "surface-dark": "#1E1E1E",
+                    },
+                    fontFamily: {
+                        display: ["Helvetica", "Inter", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "20px",
+                        'lg': '24px',
+                        'xl': '32px',
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            animation: fadeInPage 0.8s ease-out forwards;
+        }
+
+        .font-display {
+            font-family: 'Helvetica', 'Inter', sans-serif;
+        }
+
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* Scroll Reveal Styles */
+        .reveal-init {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-init.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        section {
+            scroll-margin-top: 110px;
+        }
+
+        @keyframes fadeInPage {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .page-transition-out {
+            animation: fadeOutPage 0.4s ease-in forwards;
+        }
+
+        @keyframes fadeOutPage {
+            to {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-300">
+    <!-- Navbar (same style as index) -->
+    <nav
+        class="fixed top-0 w-full z-50 glass-nav bg-background-light/80 dark:bg-background-dark/80 border-b border-black/5 dark:border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-8">
+                <a href="index.html" class="flex items-center transition-link">
+                    <img src="./logos/JAPAN PRIDE LOGO FINAL 2-21.png" alt="Japan Revival Logo"
+                        class="h-24 md:h-28 w-auto drop-shadow-sm hover:opacity-90 transition-opacity" />
+                </a>
+                <div class="hidden lg:flex items-center gap-6 text-sm font-medium opacity-80">
+                    <a class="hover:text-primary transition-colors transition-link" href="index.html">Home</a>
+                    <a class="hover:text-primary transition-colors transition-link text-primary font-semibold"
+                        href="manga.html">Manga</a>
+                    <a class="hover:text-primary transition-colors transition-link" href="index.html#about">About</a>
+                    <a class="hover:text-primary transition-colors transition-link"
+                        href="index.html#contact">Contact</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <button
+                    class="border border-primary text-primary px-6 py-2.5 rounded-full font-semibold hover:bg-primary/5 transition-all text-sm hidden sm:block">
+                    Store
+                </button>
+                <button
+                    class="bg-primary text-white px-6 py-2.5 rounded-full font-semibold hover:opacity-90 transition-all text-sm shadow-md">
+                    Shop Now
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header
+        class="relative min-h-[80vh] flex items-center pt-32 overflow-hidden bg-slate-900 justify-center text-center">
+        <!-- Cityscape Background Placeholder (Using Tokyo at night image or solid color) -->
+        <div class="absolute inset-0 z-0">
+            <img src="./Images/Latest News/Revival event/A7405029.jpg" alt="Background"
+                class="w-full h-full object-cover opacity-50 mix-blend-overlay">
+            <div
+                class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-background-light dark:to-background-dark pointer-events-none">
+            </div>
+        </div>
+
+        <div class="max-w-4xl mx-auto w-full px-6 relative z-10 text-white">
+            <h1 class="text-5xl md:text-7xl font-display font-bold mb-6 tracking-tight leading-[1.1]">
+                REVIVAL — The Rebirth<br />of an Empire
+            </h1>
+            <p class="text-xl md:text-2xl opacity-90 mb-10 leading-relaxed font-medium mx-auto max-w-2xl">
+                Volumes 1 & 2 — Available Now. A powerful story of Japan's resurgence, inspired by true events.
+            </p>
+
+            <div class="flex flex-wrap items-center justify-center gap-4 reveal-init">
+                <button
+                    class="bg-primary text-white px-10 py-4 rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-xl hover:shadow-primary/40 flex items-center gap-2">
+                    <span class="material-icons text-sm">shopping_cart</span> Buy on Amazon
+                </button>
+                <button
+                    class="bg-black/40 backdrop-blur-md border border-white/20 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-black/60 transition-all shadow-lg flex items-center gap-2">
+                    <span class="material-icons text-sm">shopping_cart</span> Buy on Rakuten
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Intro Section -->
+    <section class="py-24 px-6 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal-init">
+                    <div
+                        class="inline-flex items-center px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase mb-6">
+                        Introduction
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-display font-bold mb-8">What is Manga Revival?</h2>
+                    <div class="space-y-6 text-lg opacity-80 leading-relaxed mb-12">
+                        <p>An editorial journey through Japan's resurgence, ambition, and resilience. This narrative
+                            captures the spirit of an empire reborn, blending historical inspiration with modern
+                            storytelling excellence.</p>
+                        <p>From the ashes of the past arises a story of collective will. Experience the meticulous
+                            detail of hand-drawn panels that bring 20th-century ambition to life in a way never seen
+                            before in the medium.</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-8">
+                        <div>
+                            <div class="text-4xl font-bold text-primary mb-2">1M+</div>
+                            <div class="text-xs font-bold tracking-widest uppercase opacity-60">Readers Worldwide</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold text-primary mb-2">4.9/5</div>
+                            <div class="text-xs font-bold tracking-widest uppercase opacity-60">Global Rating</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Carousel -->
+                <div
+                    class="relative reveal-init rounded-3xl p-6 md:p-10 shadow-lg aspect-square flex flex-col items-center justify-center overflow-hidden bg-gradient-to-br from-[#EAE2D6] to-[#D5B990]">
+                    <!-- Carousel Track -->
+                    <div class="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl group">
+                        <div id="manga-carousel"
+                            class="flex w-full h-full transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]">
+                            <!-- Slide 1: Cover Vol 1 -->
+                            <div class="min-w-full h-full relative bg-[#d5ecd1] flex items-center justify-center p-8">
+                                <img src="./Images/Merch/MANGA-01.png" alt="Cover Volume 1"
+                                    class="w-full h-full object-contain drop-shadow-xl transform hover:scale-105 transition-transform duration-500" />
+                            </div>
+                            <!-- Slide 2: Cover Vol 2 -->
+                            <div class="min-w-full h-full relative bg-[#ebd59f] flex items-center justify-center p-8">
+                                <img src="./Images/Merch/MANGA-02.png" alt="Cover Volume 2"
+                                    class="w-full h-full object-contain drop-shadow-xl transform hover:scale-105 transition-transform duration-500" />
+                            </div>
+                            <!-- Slide 3: Concept Art/Excerpt -->
+                            <div class="min-w-full h-full relative flex items-center justify-center">
+                                <img src="./Images/Latest News/Release Volume 2/A7404584.jpg" alt="Art Excerpt"
+                                    class="w-full h-full object-cover" />
+                                <div
+                                    class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-8 text-white">
+                                    <h4 class="font-display font-bold text-xl mb-2">Excerpt: Volume 2</h4>
+                                    <p class="text-sm opacity-90 line-clamp-2">"The dark underbelly of Wall Street and
+                                        the myths sealed away in Japan. Mysteries that once existed only as scattered
+                                        points are finally connected..."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Controls -->
+                        <button onclick="moveCarousel(-1)"
+                            class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/60 dark:bg-black/40 backdrop-blur flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transition-all hover:bg-white dark:hover:bg-black text-slate-900 dark:text-white border border-black/5 dark:border-white/10 hover:scale-110">
+                            <span class="material-icons">chevron_left</span>
+                        </button>
+                        <button onclick="moveCarousel(1)"
+                            class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/60 dark:bg-black/40 backdrop-blur flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transition-all hover:bg-white dark:hover:bg-black text-slate-900 dark:text-white border border-black/5 dark:border-white/10 hover:scale-110">
+                            <span class="material-icons">chevron_right</span>
+                        </button>
+
+                        <!-- Indicators -->
+                        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3" id="carousel-indicators">
+                            <button onclick="goToSlide(0)"
+                                class="w-2.5 h-2.5 rounded-full bg-white/90 shadow transition-all scale-125 focus:outline-none"></button>
+                            <button onclick="goToSlide(1)"
+                                class="w-2.5 h-2.5 rounded-full bg-white/50 shadow hover:bg-white/80 transition-all focus:outline-none"></button>
+                            <button onclick="goToSlide(2)"
+                                class="w-2.5 h-2.5 rounded-full bg-white/50 shadow hover:bg-white/80 transition-all focus:outline-none"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collector Editions -->
+    <section class="py-24 px-6 bg-white/40 dark:bg-black/20 border-y border-black/5 dark:border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal-init">
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-6">Collector Editions</h2>
+                <p class="text-lg opacity-60 max-w-2xl mx-auto">Premium finishes, high-quality heavy paper, and
+                    exclusive cover art for the true connoisseur.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Collector Edition 1 -->
+                <div
+                    class="bg-white dark:bg-surface-dark rounded-xl p-8 border border-black/5 dark:border-white/10 hover:shadow-xl transition-all flex flex-col sm:flex-row items-center gap-8 reveal-init group">
+                    <div
+                        class="w-40 sm:w-48 aspect-[3/4] bg-slate-900 rounded-md shadow-lg flex-shrink-0 group-hover:scale-105 transition-transform duration-500 flex flex-col justify-end p-4 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-green-900/40">
+                        </div>
+                        <div class="text-[8px] text-white/50 text-center relative z-10 w-full mb-2">REVIVAL</div>
+                        <div class="h-px w-8 bg-white/20 mx-auto mb-2 relative z-10"></div>
+                    </div>
+                    <div class="text-center sm:text-left flex-1 py-4">
+                        <h3 class="text-2xl font-bold mb-3">Collector Edition</h3>
+                        <p class="text-sm opacity-60 mb-8">Includes an exclusive concept art gallery and textured
+                            hardback cover.</p>
+                        <button
+                            class="bg-slate-900 text-white px-8 py-3 rounded-full font-bold hover:bg-slate-800 transition-colors shadow-md w-full sm:w-auto">Order
+                            Now</button>
+                    </div>
+                </div>
+
+                <!-- Collector Edition 2 (Special) -->
+                <div
+                    class="bg-white dark:bg-surface-dark rounded-xl p-8 border border-black/5 dark:border-white/10 hover:shadow-xl transition-all shadow-md flex flex-col sm:flex-row items-center gap-8 reveal-init group relative">
+                    <div
+                        class="absolute top-0 right-8 -translate-y-1/2 bg-primary text-white text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full shadow-sm">
+                        Special</div>
+
+                    <div
+                        class="w-40 sm:w-48 aspect-[3/4] bg-[#1a3831] rounded-md shadow-lg flex-shrink-0 group-hover:scale-105 transition-transform duration-500 flex flex-col justify-center items-center p-4 relative overflow-hidden border border-white/10">
+                        <div class="w-12 h-12 rounded-full border border-white/20 mb-4 opacity-50"></div>
+                        <div class="w-20 h-2 bg-white/20 rounded-full mb-2"></div>
+                        <div class="w-16 h-1 bg-white/10 rounded-full mb-1"></div>
+                        <div class="w-16 h-1 bg-white/10 rounded-full"></div>
+                    </div>
+                    <div class="text-center sm:text-left flex-1 py-4">
+                        <h3 class="text-2xl font-bold mb-2">Special Collector Edition</h3>
+                        <div class="text-xs font-bold text-primary uppercase tracking-widest mb-3">Strictly Limited
+                        </div>
+                        <p class="text-sm opacity-60 mb-8">Strictly limited to 500 copies. Includes serial number and
+                            author's signature.</p>
+                        <button
+                            class="bg-primary text-white px-8 py-3 rounded-full font-bold hover:opacity-90 transition-all shadow-md w-full sm:w-auto shadow-primary/30">Reserve
+                            Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Softcover Editions -->
+    <section class="py-24 px-6 bg-background-light dark:bg-background-dark">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal-init">
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-6">Softcover Editions</h2>
+                <p class="text-lg opacity-60 max-w-2xl mx-auto">Perfect for the everyday reader. High-quality print on
+                    sustainable paper.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <!-- Vol 1 -->
+                <div class="flex flex-col reveal-init group">
+                    <div
+                        class="aspect-[3/4] bg-[#d5ecd1] rounded-2xl mb-8 overflow-hidden transform group-hover:scale-[1.02] transition-transform duration-500 shadow-sm">
+                        <!-- Volume abstract background using the solid color from the mockup -->
+                    </div>
+                    <div>
+                        <div class="text-primary text-xs font-bold uppercase tracking-widest mb-2">Standard Edition
+                        </div>
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-2xl font-display font-bold">Volume 1: The Spark</h3>
+                            <span class="text-2xl font-bold">$19.99</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <button
+                                class="bg-primary text-white py-3.5 rounded-full font-bold hover:opacity-90 transition-all shadow-sm flex items-center justify-center gap-2">
+                                <span class="material-icons text-[18px]">shopping_cart</span> Amazon
+                            </button>
+                            <button
+                                class="bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 py-3.5 rounded-full font-bold transition-all flex items-center justify-center gap-2">
+                                <span class="material-icons text-[18px]">shopping_bag</span> Rakuten
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vol 2 -->
+                <div class="flex flex-col reveal-init group">
+                    <div
+                        class="aspect-[3/4] bg-[#ebd59f] rounded-2xl mb-8 overflow-hidden transform group-hover:scale-[1.02] transition-transform duration-500 shadow-sm flex items-center justify-center p-12 text-center text-sm font-medium opacity-60">
+                        <!-- Details matching the mockup's text inside the image -->
+                        <span>Volume 2 “Rebirth of an Empire” due late 2026. Anticipate groundbreaking details hidden in
+                            past clues. Subscribe for updates.</span>
+                    </div>
+                    <div>
+                        <div class="text-primary text-xs font-bold uppercase tracking-widest mb-2">Standard Edition
+                        </div>
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-2xl font-display font-bold">Volume 2: The Resurgence</h3>
+                            <span class="text-2xl font-bold">$19.99</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <button
+                                class="bg-primary text-white py-3.5 rounded-full font-bold hover:opacity-90 transition-all shadow-sm flex items-center justify-center gap-2">
+                                <span class="material-icons text-[18px]">shopping_cart</span> Amazon
+                            </button>
+                            <button
+                                class="bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 py-3.5 rounded-full font-bold transition-all flex items-center justify-center gap-2">
+                                <span class="material-icons text-[18px]">shopping_bag</span> Rakuten
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simplified Footer -->
+    <footer class="bg-white dark:bg-surface-dark pt-16 pb-8 px-6 border-t border-black/5 dark:border-white/10">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-2">
+                    <div class="w-8 h-8 rounded bg-slate-800 mb-6"></div>
+                    <p class="text-sm opacity-60 max-w-sm">REVIVAL is an independent editorial project dedicated to
+                        high-quality manga storytelling and the exploration of cultural resurgence.</p>
+                </div>
+                <div>
+                    <h5
+                        class="text-xs font-bold uppercase tracking-widest mb-6 border-b border-black/5 pb-4 inline-block">
+                        Shop</h5>
+                    <ul class="space-y-3 text-sm opacity-60">
+                        <li><a class="hover:text-primary transition-colors" href="#">Softcovers</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Collectors</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Merchandise</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5
+                        class="text-xs font-bold uppercase tracking-widest mb-6 border-b border-black/5 pb-4 inline-block">
+                        Company</h5>
+                    <ul class="space-y-3 text-sm opacity-60">
+                        <li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Press Kit</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5
+                        class="text-xs font-bold uppercase tracking-widest mb-6 border-b border-black/5 pb-4 inline-block">
+                        Support</h5>
+                    <ul class="space-y-3 text-sm opacity-60">
+                        <li><a class="hover:text-primary transition-colors" href="#">Shipping</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Returns</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                class="pt-8 border-t border-black/5 dark:border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase font-bold tracking-widest opacity-50 relative">
+                <p>© 2026 REVIVAL EDITORIAL. ALL RIGHTS RESERVED.</p>
+                <div class="flex gap-6 absolute right-0">
+                    <span class="material-icons text-lg">public</span>
+                    <span class="material-icons text-lg">mail</span>
+                    <span class="material-icons text-lg">share</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Reveal logic
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-init').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Page transition logic
+        document.querySelectorAll('.transition-link').forEach(link => {
+            link.addEventListener('click', function (e) {
+                // Only hijack if it's an internal link
+                const href = this.getAttribute('href');
+                if (href && !href.startsWith('http') && !href.startsWith('#')) {
+                    e.preventDefault();
+                    document.body.classList.add('page-transition-out');
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 400); // Wait for transition to finish
+                }
+            });
+        });
+        // Carousel Logic
+        let currentSlide = 0;
+        const totalSlides = 3;
+        let autoPlayInterval;
+
+        function updateCarousel() {
+            const track = document.getElementById('manga-carousel');
+            const indicators = document.getElementById('carousel-indicators').children;
+
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+            Array.from(indicators).forEach((ind, i) => {
+                ind.className = i === currentSlide
+                    ? 'w-2.5 h-2.5 rounded-full bg-white/90 shadow transition-all scale-125 focus:outline-none'
+                    : 'w-2.5 h-2.5 rounded-full bg-white/50 shadow hover:bg-white/80 transition-all focus:outline-none';
+            });
+        }
+
+        function moveCarousel(dir) {
+            currentSlide = (currentSlide + dir + totalSlides) % totalSlides;
+            updateCarousel();
+            resetAutoPlay();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+            resetAutoPlay();
+        }
+
+        function resetAutoPlay() {
+            clearInterval(autoPlayInterval);
+            autoPlayInterval = setInterval(() => moveCarousel(1), 5000);
+        }
+
+        // Initialize autoplay
+        resetAutoPlay();
+    </script>
+</body>
+
+</html>
