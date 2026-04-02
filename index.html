@@ -359,8 +359,8 @@
                 <div class="relative">
                     <div
                         class="bg-gradient-to-tr from-primary to-rose-400 w-full aspect-[3/4] rounded-lg shadow-2xl relative z-10 overflow-hidden flex items-center justify-center">
-                        <spline-viewer url="https://prod.spline.design/jYKb5XmqwqCD7TKz/scene.splinecode"
-                            background="transparent" loading-type="eager" class="w-full h-full">
+                        <spline-viewer id="manga-spline" data-url="https://prod.spline.design/jYKb5XmqwqCD7TKz/scene.splinecode"
+                            background="transparent" class="w-full h-full">
                         </spline-viewer>
                     </div>
                     <div class="absolute -top-10 -right-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl"></div>
@@ -838,6 +838,20 @@
                 }
             });
         });
+
+        // Lazy load Spline viewer for Manga section
+        const splineViewer = document.getElementById('manga-spline');
+        if (splineViewer) {
+            const splineObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        splineViewer.setAttribute('url', splineViewer.getAttribute('data-url'));
+                        splineObserver.disconnect();
+                    }
+                });
+            }, { rootMargin: '200px' });
+            splineObserver.observe(splineViewer);
+        }
     </script>
 </body>
 
