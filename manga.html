@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.72/build/spline-viewer.js"></script>
     <script>
         tailwind.config = {
             darkMode: "class",
@@ -153,6 +154,49 @@
             </div>
         </div>
     </header>
+
+    <!-- 3D Manga Preview Section -->
+    <section class="py-24 px-6 bg-slate-900 text-white overflow-hidden reveal-init" id="manga-3d">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="relative">
+                    <div
+                        class="bg-gradient-to-tr from-primary to-rose-400 w-full aspect-[3/4] rounded-lg shadow-2xl relative z-10 overflow-hidden flex items-center justify-center">
+                        <spline-viewer id="manga-spline" url="https://prod.spline.design/jYKb5XmqwqCD7TKz/scene.splinecode"
+                            background="transparent" class="w-full h-full">
+                        </spline-viewer>
+                    </div>
+                    <div class="absolute -top-10 -right-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl"></div>
+                </div>
+                <div>
+                    <img src="./logos/REVIVAL-MANGA-LOGO.png" alt="Revival Manga"
+                        class="h-44 w-auto mb-8 drop-shadow-sm" />
+                    <p class="text-xl opacity-80 mb-10 leading-relaxed">The manga REVIVAL is a heartfelt tribute to
+                        Japan’s strength, culture, tradition, and spirit of renewal. Rooted in true events - drawing
+                        from the rebirth of RYO, Japan’s original gold unit - it follows characters who carry the spirit
+                        of the past to rebuild, protect, and inspire Japan today.</p>
+                    <div class="grid grid-cols-3 gap-4 mb-12">
+                        <div class="text-center">
+                            <div
+                                class="w-full aspect-square rounded-full bg-white/10 mb-3 overflow-hidden border-2 border-white/20">
+                                <img alt="Anthony Diaz" class="w-full h-full object-cover"
+                                    src="./Images/Manga/anthony-diaz.png" />
+                            </div>
+                            <span class="text-xs font-bold">Anthony Diaz</span>
+                        </div>
+                        <div class="text-center">
+                            <div
+                                class="w-full aspect-square rounded-full bg-white/10 mb-3 overflow-hidden border-2 border-white/20">
+                                <img alt="Lani Dizon" class="w-full h-full object-cover"
+                                    src="./Images/Manga/lani-dizon.png" />
+                            </div>
+                            <span class="text-xs font-bold">Lani Dizon</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Intro Section -->
     <section class="py-24 px-6 relative">

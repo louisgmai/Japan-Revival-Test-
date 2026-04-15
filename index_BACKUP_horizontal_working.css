@@ -1,0 +1,439 @@
+/* GLOBAL STYLES */
+:root {
+    --primary-red: #F74A53;
+    --bg-light: #F8F9FA;
+    --text-dark: #1A1A1A;
+    --text-muted: #666666;
+    --nav-height: 80px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* NAVIGATION */
+.glass-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: var(--nav-height);
+    background: rgba(255, 255, 255, 0.5);
+    /* More transparent as per screenshot */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1000;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    /* Three-part layout */
+    align-items: center;
+    padding: 0 60px;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.logo img {
+    height: 60px;
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 13px;
+    /* Slightly smaller */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.nav-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-dark);
+}
+
+/* HERO SECTION */
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: auto;
+    /* Allow global stacking comparison */
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, #ffffff 0%, #e9ebef 100%);
+    z-index: -10;
+    /* Tier 1: Deep Background */
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -5;
+    /* Tier 1.5: Above gradient, below circle */
+}
+
+.hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.15;
+}
+
+.campaign-text {
+    position: absolute;
+    left: 80px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    z-index: 10;
+    color: #b0b0b0;
+    font-weight: 700;
+}
+
+.campaign-text .year {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 2px;
+}
+
+.campaign-text .label {
+    display: block;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero-center {
+    position: relative;
+    z-index: 100;
+    /* Tier 3: Content Layer (Above circle) */
+    text-align: center;
+    width: 100%;
+    /* Restored for layout stability */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-focal-composition {
+    position: relative;
+    width: 100%;
+    /* Restored to act as a proper relative anchor */
+    height: 520px;
+    margin-bottom: 2rem;
+}
+
+/* GLOBAL PERSISTENT ELEMENTS */
+.global-red-circle {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 440px;
+    height: 440px;
+    z-index: 50;
+    /* Tier 2: Journey Level */
+    opacity: 0;
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+
+.focal-anchor {
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    visibility: hidden;
+}
+
+#anchor-about {
+    top: 20%;
+    left: 80%;
+    /* Behind Mt Fuji */
+}
+
+#anchor-for-who {
+    top: 50%;
+    left: 15%;
+}
+
+.red-circle-css {
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-red);
+    border-radius: 50%;
+    box-shadow: 0 0 100px rgba(247, 74, 83, 0.7);
+}
+
+.hero-crane {
+    position: absolute;
+    top: -220px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1500px;
+    z-index: 100;
+    /* Tier 3: Foreground Level */
+    pointer-events: none;
+}
+
+.hero-title-png {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1500px;
+    max-width: 95vw;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+    z-index: 100;
+    /* Tier 3: Foreground Level */
+}
+
+.hero-content-bottom {
+    position: relative;
+    z-index: 100;
+    /* Tier 3: Foreground Level */
+    margin-top: -20px;
+}
+
+.hero-subtitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin-bottom: 32px;
+    line-height: 1.5;
+}
+
+.btn-primary {
+    background-color: var(--primary-red);
+    color: white;
+    padding: 14px 38px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+}
+
+/* ABOUT SECTION */
+.about {
+    padding: 15vw 10vw;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    /* removed z-index to avoid stacking context trap */
+}
+
+.section-title {
+    font-size: 100px;
+    font-weight: 900;
+    letter-spacing: -2px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+.about-content {
+    max-width: 800px;
+    position: relative;
+    z-index: 100;
+    /* Foreground level */
+}
+
+.about-text {
+    font-size: 22px;
+    font-weight: 600;
+    color: #4A4A4A;
+    margin-bottom: 30px;
+    line-height: 1.4;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.fuji-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 60vw;
+    z-index: 100;
+    /* Foreground level */
+    opacity: 0;
+    transform: translateY(100px);
+}
+
+/* FOR WHO SECTION */
+.for-who {
+    padding: 10vw;
+    display: flex;
+    align-items: center;
+    gap: 8vw;
+    min-height: 100vh;
+    position: relative;
+    /* removed z-index to avoid stacking context trap */
+}
+
+/* Removed redundant z-index, managed globally at .global-red-circle */
+
+.for-who-image {
+    width: 45%;
+}
+
+.for-who-image img {
+    width: 100%;
+    height: auto;
+}
+
+.for-who-content {
+    width: 55%;
+    position: relative;
+    z-index: 100;
+    /* Tier 3: Foreground level */
+}
+
+.list-red {
+    list-style: none;
+    margin-top: 40px;
+}
+
+.list-red li {
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 30px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #4A4A4A;
+}
+
+.list-red li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 15px;
+    height: 15px;
+    background-color: var(--primary-red);
+    border-radius: 50%;
+}
+
+/* WHY NOW SECTION */
+.why {
+    padding: 15vw 10vw;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    /* removed z-index to avoid stacking context trap */
+}
+
+.why::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: white;
+    z-index: -10;
+    /* Tier 1: Deep Background */
+}
+
+.why-content {
+    max-width: 600px;
+    position: relative;
+    z-index: 100;
+    /* Tier 3: Content Layer */
+}
+
+.why-village {
+    position: absolute;
+    bottom: -50px;
+    right: 0;
+    width: 70%;
+    z-index: 100;
+    /* Tier 3: Above circle */
+}
+
+.btn-support {
+    margin-top: 50px;
+    display: inline-block;
+}
+
+/* REVEAL UTILITIES - GSAP controlled */
+.scroll-reveal {
+    opacity: 0;
+}
+
+/* RESPONSIVENESS HINTS */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 60px;
+    }
+
+    .about,
+    .for-who,
+    .why {
+        padding: 80px 40px;
+    }
+
+    .for-who {
+        flex-direction: column;
+    }
+
+    .for-who-image,
+    .for-who-content {
+        width: 100%;
+    }
+
+    .hero-title-png {
+        width: 90%;
+    }
+
+    .glass-nav {
+        padding: 0 20px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+}

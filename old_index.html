@@ -1,0 +1,844 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Revival Japan - National Revitalization Through Culture</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.72/build/spline-viewer.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#F74A53",
+                        "background-light": "#F5F0F0",
+                        "background-dark": "#121212",
+                        "surface-light": "#FFFFFF",
+                        "surface-dark": "#1E1E1E",
+                    },
+                    fontFamily: {
+                        display: ["Helvetica", "Inter", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "20px",
+                        'lg': '24px',
+                        'xl': '32px',
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            animation: fadeInPage 0.4s ease-out forwards;
+        }
+
+        @keyframes fadeInPage {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .page-transition-out {
+            animation: fadeOutPage 0.4s ease-in forwards;
+        }
+        
+        @keyframes fadeOutPage {
+            to {
+                opacity: 0;
+            }
+        }
+
+        .font-display {
+            font-family: 'Helvetica', 'Inter', sans-serif;
+        }
+
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        @keyframes scroll-dot {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            50% {
+                transform: translateY(12px);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .animate-scroll-dot {
+            animation: scroll-dot 2s ease-in-out infinite;
+        }
+
+        /* Scroll Reveal Styles */
+        .reveal-init {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-init.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        section {
+            scroll-margin-top: 110px;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-300">
+    <nav
+        class="fixed top-0 w-full z-50 glass-nav bg-background-light/80 dark:bg-background-dark/80 border-b border-black/5 dark:border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-8">
+                <a href="#" class="flex items-center">
+                    <img src="./logos/JAPAN PRIDE LOGO FINAL 2-21.png" alt="Japan Revival Logo"
+                        class="h-24 md:h-28 w-auto drop-shadow-sm hover:opacity-90 transition-opacity" />
+                </a>
+                <div class="hidden lg:flex items-center gap-6 text-sm font-medium opacity-80">
+                    <a class="hover:text-primary transition-colors" href="#news">News</a>
+                    <a class="hover:text-primary transition-colors" href="#about">About</a>
+                    <a class="hover:text-primary transition-colors transition-link" href="manga.html">Manga</a>
+                    <a class="hover:text-primary transition-colors" href="#merch">Merch</a>
+                    <a class="hover:text-primary transition-colors" href="#roadmap">Roadmap</a>
+                    <a class="hover:text-primary transition-colors" href="#supporters">Supporters</a>
+                    <a class="hover:text-primary transition-colors" href="#faq">FAQ</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="flex bg-black/5 dark:bg-white/5 p-1 rounded-full text-xs font-bold">
+                    <button class="px-3 py-1 bg-white dark:bg-zinc-800 rounded-full shadow-sm">EN</button>
+                    <button class="px-3 py-1 opacity-50">JP</button>
+                </div>
+                <button
+                    class="bg-primary text-white px-6 py-2.5 rounded-full font-semibold hover:opacity-90 transition-all text-sm">
+                    Support
+                </button>
+            </div>
+        </div>
+    </nav>
+    <header class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#f8f5f0] dark:bg-background-dark">
+        <!-- Spline 3D Background -->
+        <div class="absolute inset-0 z-0">
+            <spline-viewer url="https://prod.spline.design/W1modVyvyrOBmo3U/scene.splinecode"
+                class="w-full h-full"></spline-viewer>
+            <!-- Overlay for text contrast - pointer-events-none allows interaction with Spline -->
+            <div class="absolute inset-0 bg-white/40 dark:bg-black/60 backdrop-blur-[2px] pointer-events-none"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto w-full px-6 relative z-10">
+            <!-- Content Layer -->
+            <div class="max-w-3xl text-left">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-bold mb-8">
+                    <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                    Campaign 2026
+                </div>
+
+                <h1 class="text-6xl md:text-8xl font-display font-bold mb-6 tracking-tight leading-[1.1]">
+                    <span class="text-primary">Japan</span><br /><span
+                        class="text-slate-900 dark:text-white">Revival</span>
+                </h1>
+
+                <p
+                    class="text-xl md:text-2xl opacity-80 mb-10 leading-relaxed text-slate-800 dark:text-slate-100 max-w-2xl">
+                    National revitalization through the power of community, culture, and creative storytelling. Building
+                    a legacy for tomorrow.
+                </p>
+
+                <div class="flex flex-wrap items-center gap-4 mb-16">
+                    <button
+                        class="bg-primary text-white border border-primary px-10 py-4 rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-xl hover:shadow-primary/40">
+                        Join the Movement
+                    </button>
+                    <button
+                        class="bg-white/80 dark:bg-surface-dark/80 backdrop-blur-md border border-slate-200 dark:border-white/10 px-10 py-4 rounded-full font-bold text-lg hover:bg-white dark:hover:bg-white/10 transition-all shadow-lg">
+                        Explore Vision
+                    </button>
+                </div>
+
+                <!-- Features List -->
+                <div class="flex flex-col sm:flex-row gap-8">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-12 h-12 rounded-full bg-white/90 dark:bg-surface-dark/90 shadow-md flex items-center justify-center border border-slate-100 dark:border-white/5">
+                            <span class="material-icons text-primary">verified</span>
+                        </div>
+                        <span class="font-bold text-lg">Cultural Preservation</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-12 h-12 rounded-full bg-white/90 dark:bg-surface-dark/90 shadow-md flex items-center justify-center border border-slate-100 dark:border-white/5">
+                            <span class="material-icons text-primary">groups</span>
+                        </div>
+                        <span class="font-bold text-lg">Community Driven</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-20 opacity-60 hover:opacity-100 transition-opacity cursor-pointer animate-fade-in"
+            onclick="document.getElementById('news').scrollIntoView({behavior: 'smooth'})">
+            <span
+                class="text-[10px] uppercase tracking-[0.3em] font-bold text-slate-500 dark:text-slate-400">Scroll</span>
+            <div
+                class="w-[26px] h-[45px] rounded-full border-2 border-slate-400/30 dark:border-white/20 flex justify-center p-1.5">
+                <div class="w-1.5 h-1.5 rounded-full bg-primary animate-scroll-dot"></div>
+            </div>
+        </div>
+    </header>
+    <section class="py-24 px-6 bg-white/40 dark:bg-black/20" id="news">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <h2 class="text-4xl font-display font-bold mb-4">Latest News</h2>
+                    <div class="flex flex-wrap gap-2">
+                        <button class="px-5 py-2 rounded-full bg-primary text-white text-sm font-medium">All</button>
+                        <button
+                            class="px-5 py-2 rounded-full bg-black/5 dark:bg-white/10 text-sm font-medium hover:bg-black/10 dark:hover:bg-white/20">Updates</button>
+                        <button
+                            class="px-5 py-2 rounded-full bg-black/5 dark:bg-white/10 text-sm font-medium hover:bg-black/10 dark:hover:bg-white/20">Events</button>
+                        <button
+                            class="px-5 py-2 rounded-full bg-black/5 dark:bg-white/10 text-sm font-medium hover:bg-black/10 dark:hover:bg-white/20">Culture</button>
+                    </div>
+                </div>
+                <a class="text-primary font-bold flex items-center gap-2 group" href="#">
+                    View all News
+                    <span class="material-icons group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </a>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div
+                    class="group bg-white dark:bg-surface-dark rounded-lg overflow-hidden border border-black/5 dark:border-white/10 hover:shadow-xl transition-all">
+                    <div class="aspect-video overflow-hidden">
+                        <img alt="Tokyo at night"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            src="./Images/Latest News/Revival event/A7405029.jpg" />
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-xs font-bold uppercase tracking-widest text-primary">Event</span>
+                            <span class="text-xs opacity-50">FEB 28, 2026</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 leading-tight">The REVIVAL Publication Commemorative Party
+                            Concludes Successfully</h3>
+                        <p class="opacity-60 text-sm mb-6 line-clamp-2">Held on February 28, 2026, at the Imperial Hotel
+                            Tokyo, the publication commemorative party for the manga REVIVAL ΓÇö The Rebirth of the Empire
+                            welcomed approximately 200 guests and concluded on a high note.</p>
+                        <a class="font-bold text-sm inline-flex items-center gap-1 hover:underline" href="#">Read more
+                            <span class="material-icons text-sm">chevron_right</span></a>
+                    </div>
+                </div>
+                <div
+                    class="group bg-white dark:bg-surface-dark rounded-lg overflow-hidden border border-black/5 dark:border-white/10 hover:shadow-xl transition-all">
+                    <div class="aspect-video overflow-hidden">
+                        <img alt="Traditional Japanese architecture"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            src="./Images/Latest News/Release Volume 2/A7404584.jpg" />
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-xs font-bold uppercase tracking-widest text-primary">Update</span>
+                            <span class="text-xs opacity-50">MARCH 16, 2026</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 leading-tight">REVIVAL ΓÇö The Rebirth of an Empire
+                            Volume 2 ΓÇöAvailable Now!</h3>
+                        <p class="opacity-60 text-sm mb-6 line-clamp-2">The dark underbelly of Wall Street in New York
+                            and the myths sealed away in Japan. Mysteries that once existed only as scattered points are
+                            finally connected into a single line. In this explosive Volume 2, the storyΓÇÖs universe
+                            surges forward at full speed..</p>
+                        <a class="font-bold text-sm inline-flex items-center gap-1 hover:underline" href="#">Read more
+                            <span class="material-icons text-sm">chevron_right</span></a>
+                    </div>
+                </div>
+                <div
+                    class="group bg-white dark:bg-surface-dark rounded-lg overflow-hidden border border-black/5 dark:border-white/10 hover:shadow-xl transition-all">
+                    <div class="aspect-video overflow-hidden">
+                        <img alt="Shibuya crossing"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            src="./Images/Latest News/Matsuri/Chiyoda-matsuri.jpg" />
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-xs font-bold uppercase tracking-widest text-primary">Culture</span>
+                            <span class="text-xs opacity-50">MAR 21, 2026</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 leading-tight">
+
+
+
+                            Sakura Festival in Chiyoda
+                        </h3>
+                        <p class="opacity-60 text-sm mb-6 line-clamp-2">Festival runs from Thursday, March 5, to
+                            Wednesday, April 22, 2026, featuring illuminated sakura, boat rides, and special
+                            collaborations, centered around the iconic Chidorigafuchi Moat near the Imperial Palace.
+                            Over 1 million people visit to see 230+ trees forming a,pink tunnel.</p>
+                        <a class="font-bold text-sm inline-flex items-center gap-1 hover:underline" href="#">Read more
+                            <span class="material-icons text-sm">chevron_right</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-24 px-6" id="about">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div>
+                    <h2 class="text-5xl font-display font-bold mb-8">Our Narrative</h2>
+                    <div class="space-y-6 text-lg opacity-80 leading-relaxed">
+                        <p>Revival Japan is more than a movement; it's a bridge between the deep roots of our heritage
+                            and the boundless potential of our future. We believe that by revitalizing local communities
+                            through cultural investment, we can create a sustainable path for national growth.</p>
+                        <p>Our mission focuses on three core pillars: Cultural Preservation, Community Empowerment, and
+                            Creative Innovation. Through the medium of storytelling and art, we bring these goals to
+                            life.</p>
+                    </div>
+                    <div class="grid grid-cols-3 gap-8 mt-12">
+                        <div>
+                            <div class="text-4xl font-bold text-primary mb-1">47+</div>
+                            <div class="text-sm font-medium opacity-60">Prefectures</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold text-primary mb-1">12k</div>
+                            <div class="text-sm font-medium opacity-60">Supporters</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold text-primary mb-1">100+</div>
+                            <div class="text-sm font-medium opacity-60">Artists</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-white dark:bg-surface-dark p-8 rounded-lg border-l-4 border-primary shadow-sm">
+                        <h4 class="font-bold text-xl mb-2">Aging Population</h4>
+                        <p class="opacity-70 text-sm">Supporting rural communities facing demographic shifts through
+                            youth-focused creative projects.</p>
+                    </div>
+                    <div class="bg-white dark:bg-surface-dark p-8 rounded-lg border-l-4 border-primary shadow-sm">
+                        <h4 class="font-bold text-xl mb-2">Cultural Erosion</h4>
+                        <p class="opacity-70 text-sm">Revitalizing traditional crafts and local folklore by bringing
+                            them into the digital age.</p>
+                    </div>
+                    <div class="bg-white dark:bg-surface-dark p-8 rounded-lg border-l-4 border-primary shadow-sm">
+                        <h4 class="font-bold text-xl mb-2">Economic Disparity</h4>
+                        <p class="opacity-70 text-sm">Creating new economic opportunities through tourism, merch, and
+                            cultural exports.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-24 px-6 bg-slate-900 text-white overflow-hidden" id="manga">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="relative">
+                    <div
+                        class="bg-gradient-to-tr from-primary to-rose-400 w-full aspect-[3/4] rounded-lg shadow-2xl relative z-10 overflow-hidden flex items-center justify-center">
+                        <spline-viewer url="https://prod.spline.design/jYKb5XmqwqCD7TKz/scene.splinecode"
+                            background="transparent" loading-type="eager" class="w-full h-full">
+                        </spline-viewer>
+                    </div>
+                    <div class="absolute -top-10 -right-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl"></div>
+                </div>
+                <div>
+                    <img src="./logos/REVIVAL-MANGA-LOGO.png" alt="Revival Manga"
+                        class="h-44 w-auto mb-8 drop-shadow-sm" />
+                    <p class="text-xl opacity-80 mb-10 leading-relaxed">The manga REVIVAL is a heartfelt tribute to
+                        JapanΓÇÖs strength, culture, tradition, and spirit of renewal. Rooted in true events - drawing
+                        from the rebirth of RYO, JapanΓÇÖs original gold unit - it follows characters who carry the spirit
+                        of the past to rebuild, protect, and inspire Japan today.</p>
+                    <div class="grid grid-cols-3 gap-4 mb-12">
+                        <div class="text-center">
+                            <div
+                                class="w-full aspect-square rounded-full bg-white/10 mb-3 overflow-hidden border-2 border-white/20">
+                                <img alt="Anthony Diaz" class="w-full h-full object-cover"
+                                    src="./Images/Manga/anthony-diaz.png" />
+                            </div>
+                            <span class="text-xs font-bold">Anthony Diaz</span>
+                        </div>
+                        <div class="text-center">
+                            <div
+                                class="w-full aspect-square rounded-full bg-white/10 mb-3 overflow-hidden border-2 border-white/20">
+                                <img alt="Lani Dizon" class="w-full h-full object-cover"
+                                    src="./Images/Manga/lani-dizon.png" />
+                            </div>
+                            <span class="text-xs font-bold">Lani Dizon</span>
+                        </div>
+                    </div>
+                    <a href="manga.html"
+                        class="group flex w-fit items-center gap-4 bg-primary px-8 py-4 rounded-full font-bold text-white transition-all hover:bg-white hover:text-primary transition-link shadow-lg">
+                        Discover the Manga
+                        <span class="material-icons group-hover:translate-x-1 transition-transform">auto_stories</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-24 px-6" id="merch">
+        <div class="max-w-7xl mx-auto text-center mb-16">
+            <h2 class="text-5xl font-display font-bold mb-4">Official Goods</h2>
+            <p class="opacity-60 text-lg">Ethically sourced, artisan crafted. Support the movement in style.</p>
+        </div>
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
+            <div
+                class="bg-white dark:bg-surface-dark rounded-lg p-6 border border-black/5 dark:border-white/10 hover:shadow-lg transition-all group flex flex-col">
+                <div
+                    class="aspect-square rounded-lg bg-background-light dark:bg-black/20 mb-6 overflow-hidden relative">
+                    <img alt="REVIVAL ΓÇö The Rebirth of an Empire Vol. 1"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        src="./Images/Merch/MANGA-01.png" />
+                </div>
+                <h4 class="font-bold mb-1">REVIVAL ΓÇö The Rebirth of an Empire Vol. 1</h4>
+                <p class="text-primary font-bold mb-4">┬Ñ2,200</p>
+                <button
+                    class="mt-auto w-full py-3 rounded-full border-2 border-black/10 dark:border-white/10 font-bold hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black transition-colors">View</button>
+            </div>
+            <div
+                class="bg-white dark:bg-surface-dark rounded-lg p-6 border border-black/5 dark:border-white/10 hover:shadow-lg transition-all group flex flex-col">
+                <div
+                    class="aspect-square rounded-lg bg-background-light dark:bg-black/20 mb-6 overflow-hidden relative">
+                    <img alt="REVIVAL ΓÇö The Rebirth of an Empire Vol. 2"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        src="./Images/Merch/MANGA-02.png" />
+                </div>
+                <h4 class="font-bold mb-1">REVIVAL ΓÇö The Rebirth of an Empire Vol. 2</h4>
+                <p class="text-primary font-bold mb-4">┬Ñ2,200</p>
+                <button
+                    class="mt-auto w-full py-3 rounded-full border-2 border-black/10 dark:border-white/10 font-bold hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black transition-colors">View</button>
+            </div>
+            <div
+                class="bg-white dark:bg-surface-dark rounded-lg p-6 border border-black/5 dark:border-white/10 hover:shadow-lg transition-all group flex flex-col">
+                <div
+                    class="aspect-square rounded-lg bg-background-light dark:bg-black/20 mb-6 overflow-hidden relative">
+                    <img alt="Collector Coin"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        src="./Images/Merch/MEDAL-CRANE.png" />
+                </div>
+                <h4 class="font-bold mb-1">Collector Coin</h4>
+                <p class="text-primary font-bold mb-4">┬Ñ3,500</p>
+                <button
+                    class="mt-auto w-full py-3 rounded-full border-2 border-black/10 dark:border-white/10 font-bold hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black transition-colors">View</button>
+            </div>
+            <div
+                class="bg-white dark:bg-surface-dark rounded-lg p-6 border border-black/5 dark:border-white/10 hover:shadow-lg transition-all group flex flex-col">
+                <div
+                    class="aspect-square rounded-lg bg-background-light dark:bg-black/20 mb-6 overflow-hidden relative">
+                    <img alt="Official Ryo Plushie"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        src="./Images/Merch/PLUSHIE.png" />
+                </div>
+                <h4 class="font-bold mb-1">Official Ryo Plushie</h4>
+                <p class="text-primary font-bold mb-4">┬Ñ3,200</p>
+                <button
+                    class="mt-auto w-full py-3 rounded-full border-2 border-black/10 dark:border-white/10 font-bold hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black transition-colors">View</button>
+            </div>
+        </div>
+    </section>
+    <section class="py-24 px-6 bg-white/40 dark:bg-black/20" id="roadmap">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-5xl font-display font-bold mb-16 text-center">Roadmap</h2>
+            <div class="space-y-12">
+                <div class="relative pl-12 border-l-2 border-primary/20">
+                    <div class="absolute -left-[11px] top-0 w-5 h-5 rounded-full bg-primary ring-4 ring-primary/20">
+                    </div>
+                    <div class="flex items-center gap-4 mb-2">
+                        <span class="text-primary font-bold">2024 Q1</span>
+                        <span
+                            class="px-3 py-1 bg-green-500/10 text-green-500 text-[10px] uppercase font-bold rounded-full">Done</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Campaign Genesis</h3>
+                    <p class="opacity-60">Launch of the initial community platform and supporter recruitment phase.
+                        First 1,000 members onboarded.</p>
+                </div>
+                <div class="relative pl-12 border-l-2 border-primary">
+                    <div class="absolute -left-[11px] top-0 w-5 h-5 rounded-full bg-primary animate-pulse"></div>
+                    <div class="flex items-center gap-4 mb-2">
+                        <span class="text-primary font-bold">2024 Q2</span>
+                        <span
+                            class="px-3 py-1 bg-primary/10 text-primary text-[10px] uppercase font-bold rounded-full">In
+                            Progress</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Manga Debut &amp; Local Chapters</h3>
+                    <p class="opacity-60">Digital serialization of the official manga and establishment of local
+                        community hubs in Kyoto and Nagano.</p>
+                </div>
+                <div class="relative pl-12 border-l-2 border-primary/20">
+                    <div class="absolute -left-[11px] top-0 w-5 h-5 rounded-full bg-slate-300 dark:bg-slate-700"></div>
+                    <div class="flex items-center gap-4 mb-2">
+                        <span class="text-primary font-bold">2024 Q3</span>
+                        <span
+                            class="px-3 py-1 bg-black/5 dark:bg-white/10 opacity-50 text-[10px] uppercase font-bold rounded-full">Planned</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Revival Festival Tokyo</h3>
+                    <p class="opacity-60">Large-scale cultural expo featuring artisan workshops, manga exhibits, and
+                        community networking.</p>
+                </div>
+                <div class="relative pl-12">
+                    <div class="absolute -left-[11px] top-0 w-5 h-5 rounded-full bg-slate-300 dark:bg-slate-700"></div>
+                    <div class="flex items-center gap-4 mb-2">
+                        <span class="text-primary font-bold">2024 Q4</span>
+                        <span
+                            class="px-3 py-1 bg-black/5 dark:bg-white/10 opacity-50 text-[10px] uppercase font-bold rounded-full">Planned</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Artisan Grant Program</h3>
+                    <p class="opacity-60">Launching the first financial grant program for traditional craft
+                        preservationists across rural Japan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-24 px-6" id="supporters">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-4xl font-display font-bold mb-12">Official Supporters</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6 mb-12">
+                <div
+                    class="h-24 bg-white dark:bg-surface-dark rounded-lg flex items-center justify-center grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all border border-black/5 reveal px-4">
+                    <img src="./logos/OFFICIAL SUPPORTER/Artboard 4.png" alt="Official Supporter"
+                        class="h-full w-full object-contain py-3" />
+                </div>
+                <div
+                    class="h-24 bg-white dark:bg-surface-dark rounded-lg flex items-center justify-center grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all border border-black/5 reveal px-4">
+                    <img src="./logos/OFFICIAL SUPPORTER/Artboard 5.png" alt="Official Supporter"
+                        class="h-full w-full object-contain py-3" />
+                </div>
+                <div
+                    class="h-24 bg-white dark:bg-surface-dark rounded-lg flex items-center justify-center grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all border border-black/5 reveal px-4">
+                    <img src="./logos/OFFICIAL SUPPORTER/Artboard 6.png" alt="Official Supporter"
+                        class="h-full w-full object-contain py-3" />
+                </div>
+                <div
+                    class="h-24 bg-white dark:bg-surface-dark rounded-lg flex items-center justify-center grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all border border-black/5 reveal px-4">
+                    <img src="./logos/OFFICIAL SUPPORTER/Artboard 7.png" alt="Official Supporter"
+                        class="h-full w-full object-contain py-3" />
+                </div>
+                <div
+                    class="h-24 bg-white dark:bg-surface-dark rounded-lg flex items-center justify-center grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all border border-black/5 reveal px-4">
+                    <img src="./logos/OFFICIAL SUPPORTER/Artboard 8.png" alt="Official Supporter"
+                        class="h-full w-full object-contain py-3" />
+                </div>
+                <div
+                    class="h-24 bg-white dark:bg-surface-dark rounded-lg flex items-center justify-center grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all border border-black/5 reveal px-4">
+                    <img src="./logos/OFFICIAL SUPPORTER/Artboard 9.png" alt="Official Supporter"
+                        class="h-full w-full object-contain py-3" />
+                </div>
+                <div
+                    class="h-24 bg-white dark:bg-surface-dark rounded-lg flex items-center justify-center grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all border border-black/5 reveal px-4">
+                    <img src="./logos/OFFICIAL SUPPORTER/Artboard 10.png" alt="Official Supporter"
+                        class="h-full w-full object-contain py-3" />
+                </div>
+                <div
+                    class="h-24 bg-white dark:bg-surface-dark rounded-lg flex items-center justify-center grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all border border-black/5 reveal px-4">
+                    <img src="./logos/OFFICIAL SUPPORTER/Artboard 11.png" alt="Official Supporter"
+                        class="h-full w-full object-contain py-3" />
+                </div>
+            </div>
+            <a class="inline-flex items-center gap-2 font-bold text-primary hover:underline" href="#">
+                Become a supporter <span class="material-icons">arrow_outward</span>
+            </a>
+        </div>
+    </section>
+    <section class="py-24 px-6">
+        <div
+            class="max-w-7xl mx-auto bg-primary rounded-xl p-12 md:p-24 text-white text-center relative overflow-hidden">
+            <div
+                class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl">
+            </div>
+            <div class="relative z-10">
+                <h2 class="text-4xl md:text-6xl font-display font-bold mb-6">Join the Revival</h2>
+                <p class="text-xl opacity-90 mb-12 max-w-2xl mx-auto">Your support directly funds cultural projects and
+                    local community initiatives across Japan.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button
+                        class="bg-white text-primary px-10 py-4 rounded-full font-bold text-lg hover:bg-opacity-90 transition-all">Subscribe</button>
+                    <button
+                        class="bg-black/20 text-white border border-white/30 px-10 py-4 rounded-full font-bold text-lg hover:bg-black/30 transition-all">Become
+                        Partner</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-24 px-6" id="faq">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-4xl font-display font-bold mb-12 text-center">Frequently Asked Questions</h2>
+            <div class="space-y-4">
+                <div class="bg-white dark:bg-surface-dark border border-black/5 dark:border-white/10 rounded-lg p-6 group cursor-pointer hover:border-primary/30 transition-colors"
+                    onclick="this.classList.toggle('active')">
+                    <button class="w-full flex items-center justify-between text-left font-bold text-lg">
+                        <span>What is the Japan Revival Campaign?</span>
+                        <span
+                            class="material-icons opacity-50 transition-transform group-[.active]:rotate-180">expand_more</span>
+                    </button>
+                    <div class="mt-4 text-sm opacity-60 hidden group-[.active]:block leading-relaxed">
+                        The Japan Revival Campaign is a movement to help restore JapanΓÇÖs spirit, economy, and cultural
+                        pride through innovation, heritage, and community-driven initiatives. It combines cultural
+                        projects, collector items, and community engagement to inspire unity and renewal.
+
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-surface-dark border border-black/5 dark:border-white/10 rounded-lg p-6 group cursor-pointer hover:border-primary/30 transition-colors"
+                    onclick="this.classList.toggle('active')">
+                    <button class="w-full flex items-center justify-between text-left font-bold text-lg">
+                        <span>Why is this Japan Revival Campaign necessary?</span>
+                        <span
+                            class="material-icons opacity-50 transition-transform group-[.active]:rotate-180">expand_more</span>
+                    </button>
+                    <div class="mt-4 text-sm opacity-60 hidden group-[.active]:block leading-relaxed">
+                        Japan faces challenges with an aging population, economic stagnation, and cultural traditions at
+                        risk of being forgotten. The Japan Revival Campaign addresses these issues by promoting
+                        innovation, celebrating heritage, and empowering people and communities to take pride in
+                        reviving Japan for future generations.
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-surface-dark border border-black/5 dark:border-white/10 rounded-lg p-6 group cursor-pointer hover:border-primary/30 transition-colors"
+                    onclick="this.classList.toggle('active')">
+                    <button class="w-full flex items-center justify-between text-left font-bold text-lg">
+                        <span>Who is leading the campaign?</span>
+                        <span
+                            class="material-icons opacity-50 transition-transform group-[.active]:rotate-180">expand_more</span>
+                    </button>
+                    <div class="mt-4 text-sm opacity-60 hidden group-[.active]:block leading-relaxed">
+                        The campaign is led by One World, a company in Japan, together with trusted partners and
+                        community advocates.
+
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-surface-dark border border-black/5 dark:border-white/10 rounded-lg p-6 group cursor-pointer hover:border-primary/30 transition-colors"
+                    onclick="this.classList.toggle('active')">
+                    <button class="w-full flex items-center justify-between text-left font-bold text-lg">
+                        <span>Who are the current supporters?</span>
+                        <span
+                            class="material-icons opacity-50 transition-transform group-[.active]:rotate-180">expand_more</span>
+                    </button>
+                    <div class="mt-4 text-sm opacity-60 hidden group-[.active]:block leading-relaxed">
+                        The campaign has already gained interest from influential Japanese and global supporters. With
+                        the website launch on September 1, 2025, we begin the public awareness phase and invite
+                        individuals, companies, and organizations to join as official supporters.
+
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-surface-dark border border-black/5 dark:border-white/10 rounded-lg p-6 group cursor-pointer hover:border-primary/30 transition-colors"
+                    onclick="this.classList.toggle('active')">
+                    <button class="w-full flex items-center justify-between text-left font-bold text-lg">
+                        <span>How can I support the campaign?</span>
+                        <span
+                            class="material-icons opacity-50 transition-transform group-[.active]:rotate-180">expand_more</span>
+                    </button>
+                    <div class="mt-4 text-sm opacity-60 hidden group-[.active]:block leading-relaxed">
+                        Simply click the ΓÇ£I Support!ΓÇ¥ button, agree to be listed as a Japan Revival supporter, and allow
+                        your name or logo to appear on our supporters page. This shows your public commitment to helping
+                        revive Japan.
+
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-surface-dark border border-black/5 dark:border-white/10 rounded-lg p-6 group cursor-pointer hover:border-primary/30 transition-colors"
+                    onclick="this.classList.toggle('active')">
+                    <button class="w-full flex items-center justify-between text-left font-bold text-lg">
+                        <span>Can my company benefit from being a supporter?</span>
+                        <span
+                            class="material-icons opacity-50 transition-transform group-[.active]:rotate-180">expand_more</span>
+                    </button>
+                    <div class="mt-4 text-sm opacity-60 hidden group-[.active]:block leading-relaxed">
+                        Yes. Supporters are showcased on our website and campaign materials, gaining visibility as part
+                        of a positive, forward-looking movement. As the campaign grows, every supporter benefits from
+                        increased recognition and shared momentum.
+
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-surface-dark border border-black/5 dark:border-white/10 rounded-lg p-6 group cursor-pointer hover:border-primary/30 transition-colors"
+                    onclick="this.classList.toggle('active')">
+                    <button class="w-full flex items-center justify-between text-left font-bold text-lg">
+                        <span>I am an artist. How can I be involved?</span>
+                        <span
+                            class="material-icons opacity-50 transition-transform group-[.active]:rotate-180">expand_more</span>
+                    </button>
+                    <div class="mt-4 text-sm opacity-60 hidden group-[.active]:block leading-relaxed">
+                        We encourage artists to collaborate with us by creating Japan Revival art, NFTs, and other
+                        works. Selected pieces may be showcased in our official shop, with a portion of each sale
+                        dedicated to Japan Revival initiatives.
+
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-surface-dark border border-black/5 dark:border-white/10 rounded-lg p-6 group cursor-pointer hover:border-primary/30 transition-colors"
+                    onclick="this.classList.toggle('active')">
+                    <button class="w-full flex items-center justify-between text-left font-bold text-lg">
+                        <span>I or my company already work on projects to help Japan grow and preserve its heritage. How
+                            can we benefit?</span>
+                        <span
+                            class="material-icons opacity-50 transition-transform group-[.active]:rotate-180">expand_more</span>
+                    </button>
+                    <div class="mt-4 text-sm opacity-60 hidden group-[.active]:block leading-relaxed">
+                        A portion of proceeds from collector items and campaigns will be donated to select initiatives
+                        aligned with Japan RevivalΓÇÖs mission, helping amplify the work of organizations and businesses
+                        already dedicated to cultural preservation and community development.
+
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-surface-dark border border-black/5 dark:border-white/10 rounded-lg p-6 group cursor-pointer hover:border-primary/30 transition-colors"
+                    onclick="this.classList.toggle('active')">
+                    <button class="w-full flex items-center justify-between text-left font-bold text-lg">
+                        <span>Can I donate directly to the campaign?</span>
+                        <span
+                            class="material-icons opacity-50 transition-transform group-[.active]:rotate-180">expand_more</span>
+                    </button>
+                    <div class="mt-4 text-sm opacity-60 hidden group-[.active]:block leading-relaxed">
+                        The campaign is not currently accepting direct donations. However, by purchasing collector items
+                        ΓÇö such as the 24kt plated Japan Revival Coin, REVIVAL Manga, and upcoming limited editions ΓÇö you
+                        directly contribute, as a portion of proceeds supports Japan Revival initiatives. The number of
+                        collector items will expand over time, offering new ways to contribute and own meaningful pieces
+                        of the Revival story.
+
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-surface-dark border border-black/5 dark:border-white/10 rounded-lg p-6 group cursor-pointer hover:border-primary/30 transition-colors"
+                    onclick="this.classList.toggle('active')">
+                    <button class="w-full flex items-center justify-between text-left font-bold text-lg">
+                        <span>What payment methods are accepted for collector items?</span>
+                        <span
+                            class="material-icons opacity-50 transition-transform group-[.active]:rotate-180">expand_more</span>
+                    </button>
+                    <div class="mt-4 text-sm opacity-60 hidden group-[.active]:block leading-relaxed">
+                        Collector items can be purchased using major credit cards as well as select digital payment
+                        options.
+
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-surface-dark border border-black/5 dark:border-white/10 rounded-lg p-6 group cursor-pointer hover:border-primary/30 transition-colors"
+                    onclick="this.classList.toggle('active')">
+                    <button class="w-full flex items-center justify-between text-left font-bold text-lg">
+                        <span>I would like to get more actively involved or share ideas. How should I start?</span>
+                        <span
+                            class="material-icons opacity-50 transition-transform group-[.active]:rotate-180">expand_more</span>
+                    </button>
+                    <div class="mt-4 text-sm opacity-60 hidden group-[.active]:block leading-relaxed">
+                        We welcome new voices and ideas. Please contact us directly through the ΓÇ£Get InvolvedΓÇ¥ form on
+                        the website to explore opportunities to participate in shaping the Revival.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-white dark:bg-surface-dark pt-24 pb-12 px-6 border-t border-black/5 dark:border-white/10">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-2">
+                    <a href="#" class="inline-block mb-6">
+                        <img src="./logos/JAPAN PRIDE LOGO FINAL 2-21.png" alt="Japan Revival Logo"
+                            class="h-32 md:h-40 w-auto hover:opacity-90 transition-opacity" />
+                    </a>
+                    <p class="opacity-60 max-w-sm mb-8">Building a brighter future for Japan by celebrating its past and
+                        empowering its present.</p>
+                    <div class="flex gap-4">
+                        <a class="w-10 h-10 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center hover:text-primary transition-colors"
+                            href="#"><span class="material-icons text-xl">language</span></a>
+                        <a class="w-10 h-10 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center hover:text-primary transition-colors"
+                            href="#"><span class="material-icons text-xl">camera_alt</span></a>
+                        <a class="w-10 h-10 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center hover:text-primary transition-colors"
+                            href="#"><span class="material-icons text-xl">share</span></a>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-6">Quick Links</h5>
+                    <ul class="space-y-4 text-sm opacity-60">
+                        <li><a class="hover:text-primary" href="#">News &amp; Updates</a></li>
+                        <li><a class="hover:text-primary" href="#">About Us</a></li>
+                        <li><a class="hover:text-primary" href="#">Manga Series</a></li>
+                        <li><a class="hover:text-primary" href="#">Merch Store</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-6">Newsletter</h5>
+                    <p class="text-sm opacity-60 mb-4">Stay updated with our latest missions.</p>
+                    <div class="flex">
+                        <input
+                            class="bg-black/5 dark:bg-white/5 border-none rounded-l-full px-6 py-3 text-sm focus:ring-1 focus:ring-primary w-full"
+                            placeholder="Email address" type="email" />
+                        <button
+                            class="bg-primary text-white px-6 rounded-r-full font-bold hover:opacity-90 transition-all">Join</button>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="pt-8 border-t border-black/5 dark:border-white/10 flex flex-col md:row justify-between items-center gap-6 text-sm opacity-50">
+                <p>┬⌐ 2024 Revival Japan. All rights reserved.</p>
+                <div class="flex gap-8">
+                    <a class="hover:underline" href="#">Privacy Policy</a>
+                    <a class="hover:underline" href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Scroll Reveal logic
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section, .reveal').forEach(el => {
+            el.classList.add('reveal-init');
+            observer.observe(el);
+        });
+
+        // Language toggle (Visual only)
+        document.querySelectorAll('.flex.bg-black\\/5 button').forEach(btn => {
+            btn.onclick = () => {
+                document.querySelectorAll('.flex.bg-black\\/5 button').forEach(b => {
+                    b.classList.remove('bg-white', 'dark:bg-zinc-800', 'shadow-sm');
+                    b.classList.add('opacity-50');
+                });
+                btn.classList.add('bg-white', 'dark:bg-zinc-800', 'shadow-sm');
+                btn.classList.remove('opacity-50');
+            };
+        });
+
+        // Page transition logic for internal links
+        document.querySelectorAll('.transition-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && !href.startsWith('http') && !href.startsWith('#')) {
+                    e.preventDefault();
+                    document.body.classList.add('page-transition-out');
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 400); // matches CSS animation duration
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
